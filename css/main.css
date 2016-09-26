@@ -91,9 +91,13 @@ label {
     margin-top: 5px;
 }
 
-i:hover {
+a:hover, i:hover {
     color: #44c767;
     cursor: pointer;
+}
+
+a {
+    color: white;
 }
 
 .send_email_container {

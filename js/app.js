@@ -1,11 +1,12 @@
 $(document).ready(function () {
     var contacts = []
-    var contactIcon = "<i class=\"fa fa-user\" aria-hidden=\"true\">" + "</i>"
     var space = " "
     var closeSpan = "</span>"
     var sendEmail = "<span class=\"email_text\">" + "Send E-mail" + "</span>" + "</div>"
+    var trashIcon = "<i class=\"fa fa-trash-o\" aria-hidden=\"true\">" + "</i>"
     var createHtml = function(object){
         var html = ""
+        var contactIcon = "<a href=\"mailto:" + object.email + "\">" +  "<i class=\"fa fa-user\" aria-hidden=\"true\">" + "</i>" + "</a>"
         html += "<li>"
         html += contactIcon + space
         html += "<span>"
@@ -20,9 +21,11 @@ $(document).ready(function () {
         html += "<span>"
         html += object.email + space
         html += closeSpan
+        html += trashIcon
         html += "</li>"
         return html
     }
+    
     var checkForm = function(){
         var result = true
         if ($('#first_name').val() == '' || $('#first_name').val() == undefined){
@@ -48,6 +51,11 @@ $(document).ready(function () {
         return result
     }
     
+   $( "body" ).delegate( ".fa-trash-o", "click", function() {
+  $( this ).parent().remove();
+       
+});
+    
     var hideError = function (){
         
     }
@@ -66,7 +74,7 @@ $(document).ready(function () {
          contacts.push(contact)
          
         
-        $('#contact-list ul').append(createHtml(contact)));
+        $('#contact-list ul').append(createHtml(contact));
         $('#contact-form form')[0].reset();
     })
     $("#first_name").focus(function(){
