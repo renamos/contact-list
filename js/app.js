@@ -1,26 +1,25 @@
 $(document).ready(function () {
     var contacts = []
-    var contactIcon = "<i class=\"fa fa-user\" aria-hidden=\"true\">"
+    var contactIcon = "<i class=\"fa fa-user\" aria-hidden=\"true\">" + "</i>"
     var space = " "
-    var sendEmail = "<div class=\"send_email_container\">" + "<span class=\"email_text\">" + "Send E-mail" + "</span>" + "</div>"
+    var closeSpan = "</span>"
+    var sendEmail = "<span class=\"email_text\">" + "Send E-mail" + "</span>" + "</div>"
     var createHtml = function(object){
         var html = ""
         html += "<li>"
-        html += "<span>"
-        html += contactIcon + "</i>" + space
-        html += "</span>"
+        html += contactIcon + space
         html += "<span>"
         html += object.name + space
         html += object.secondName + space
-        html += "</span>"
+        html += closeSpan
         html += "|"
         html += "<span>"
         html += object.phoneNumber + space
-        html += "</span>"
+        html += closeSpan
         html += "|"
         html += "<span>"
         html += object.email + space
-        html += "</span>"
+        html += closeSpan
         html += "</li>"
         return html
     }
@@ -67,7 +66,7 @@ $(document).ready(function () {
          contacts.push(contact)
          
         
-        $('#contact-list ul').append(createHtml(contact));
+        $('#contact-list ul').append(createHtml(contact)));
         $('#contact-form form')[0].reset();
     })
     $("#first_name").focus(function(){

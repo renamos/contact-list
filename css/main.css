@@ -27,6 +27,7 @@ li {
     list-style: none;
     font-size: 1.5em;
     padding: 5px;
+    left: -40px; 
 }
 
 input, label {
@@ -95,3 +96,21 @@ i:hover {
     cursor: pointer;
 }
 
+.send_email_container {
+    position: relative;
+    display: inline-block;
+}
+
+.email_text, .send_email_container {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+}
+
+.send_email_container:hover, .email_text:hover {
+    visibility: visible;
+}
